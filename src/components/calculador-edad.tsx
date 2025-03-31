@@ -49,48 +49,50 @@ export function CalculadorEdad() {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Calculador de Edad Exacta</CardTitle>
-        <CardDescription>Calcula tu edad exacta en años, meses, semanas, días y horas.</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="fecha-nacimiento" className="flex items-center gap-2">
-              <CalendarIcon className="h-4 w-4" /> Fecha de Nacimiento
-            </Label>
-            <Input
-              id="fecha-nacimiento"
-              type="date"
-              value={fechaNacimiento}
-              onChange={(e) => setFechaNacimiento(e.target.value)}
-            />
+      <Card style={{ borderColor: "#c2f0ff" }}>
+        <CardHeader style={{ backgroundColor: "rgba(194, 240, 255, 0.2)" }}>
+          <CardTitle>Calculador de Edad Exacta</CardTitle>
+          <CardDescription>Calcula tu edad exacta en años, meses, semanas, días y horas.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="fecha-nacimiento" className="flex items-center gap-2">
+                <CalendarIcon className="h-4 w-4" /> Fecha de Nacimiento
+              </Label>
+              <Input
+                  id="fecha-nacimiento"
+                  type="date"
+                  value={fechaNacimiento}
+                  onChange={(e) => setFechaNacimiento(e.target.value)}
+                  style={{ borderColor: "#c2f0ff" }}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="hora-nacimiento" className="flex items-center gap-2">
+                <Clock className="h-4 w-4" /> Hora de Nacimiento
+              </Label>
+              <Input
+                  id="hora-nacimiento"
+                  type="time"
+                  value={horaNacimiento}
+                  onChange={(e) => setHoraNacimiento(e.target.value)}
+                  style={{ borderColor: "#c2f0ff" }}
+              />
+            </div>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="hora-nacimiento" className="flex items-center gap-2">
-              <Clock className="h-4 w-4" /> Hora de Nacimiento
-            </Label>
-            <Input
-              id="hora-nacimiento"
-              type="time"
-              value={horaNacimiento}
-              onChange={(e) => setHoraNacimiento(e.target.value)}
-            />
-          </div>
-        </div>
 
-        <Button onClick={calcularEdad} className="w-full">
-          Calcular Edad
-        </Button>
+          <Button onClick={calcularEdad} className="w-full" style={{ backgroundColor: "#c2f0ff", color: "#0c4a6e" }}>
+            Calcular Edad
+          </Button>
 
-        {edad && (
-          <Alert className="bg-blue-50">
-            <AlertDescription className="text-blue-600">Tu edad exacta es: {edad}</AlertDescription>
-          </Alert>
-        )}
-      </CardContent>
-    </Card>
+          {edad && (
+              <Alert className="bg-blue-50" style={{ backgroundColor: "rgba(194, 240, 255, 0.2)" }}>
+                <AlertDescription style={{ color: "#0c4a6e" }}>Tu edad exacta es: {edad}</AlertDescription>
+              </Alert>
+          )}
+        </CardContent>
+      </Card>
   )
 }
 
